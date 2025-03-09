@@ -17,49 +17,46 @@ Además, está diseñada para ser escalable y fácilmente adaptable a futuras me
 ---
 
 ## 📂 **Estructura del Proyecto**
-.
-├── README.md
-├── components
-│   ├── Footer.tsx
-│   ├── Header.tsx
-│   ├── IMCCalculator
-│   │   ├── IMCCalculator.module.css
-│   │   └── IMCCalculator.tsx
-│   └── LLMChat
-│       └── LLMChat.tsx
-├── eslint.config.mjs
-├── next-env.d.ts
-├── next.config.ts
-├── package-lock.json
-├── package.json
-├── postcss.config.mjs
-├── public
-│   ├── file.svg
-│   ├── globe.svg
-│   ├── next.svg
-│   ├── vercel.svg
-│   └── window.svg
-├── src
-│   └── app
-│       ├── about
-│       │   └── page.tsx
-│       ├── api
-│       │   └── chat
-│       │       └── route.ts
-│       ├── chatme
-│       │   └── page.tsx
-│       ├── exchange
-│       │   └── page.tsx
-│       ├── favicon.ico
-│       ├── globals.css
-│       ├── imc
-│       │   └── page.tsx
-│       ├── layout.tsx
-│       ├── page.tsx
-│       └── projects
-│           └── page.tsx
-├── tailwind.config.js
-└── tsconfig.json
+```plaintext
+📦 src/
+ ├── app/
+ │   ├── api/
+ │   │   ├── chat/
+ │   │   │   └── route.ts        # API para el asistente conversacional (GPT)
+ │   │   ├── exchange/
+ │   │   │   └── route.ts        # API para conversión de divisas
+ │   ├── about/
+ │   │   └── page.tsx            # Página "Sobre mí"
+ │   ├── chat/
+ │   │   └── page.tsx            # Chat conversacional con IA
+ │   ├── exchange/
+ │   │   └── page.tsx            # Conversor de divisas
+ │   ├── imc/
+ │   │   └── page.tsx            # Calculadora de IMC
+ │   ├── layout.tsx              # Layout principal
+ │   ├── page.tsx                # Página de inicio personalizada
+ │   ├── globals.css             # Estilos globales con Tailwind
+ │   ├── middleware.ts           # Protección de rutas (Autenticación)
+ │   ├── favicon.ico
+ │   ├── manifest.json           # Configuración para PWA
+ ├── components/
+ │   ├── Footer.tsx
+ │   ├── Header.tsx
+ │   ├── IMCCalculator/
+ │   │   ├── IMCCalculator.tsx
+ │   │   ├── IMCCalculator.module.css
+ │   ├── LLMChat/
+ │   │   ├── LLMChat.tsx         # Componente de Chat GPT
+ ├── public/
+ │   ├── assets/                 # Imágenes y archivos públicos
+ ├── .env.local                  # Variables de entorno (API Keys, System Role)
+ ├── capacitor.config.ts          # Configuración para móvil (Android/iOS)
+ ├── next.config.js               # Configuración avanzada de Next.js
+ ├── tsconfig.json                # Configuración de TypeScript
+ ├── tailwind.config.js           # Configuración de Tailwind CSS
+ ├── package.json                 # Dependencias del proyecto
+ ├── README.md                    # Este archivo
+```
 
 ---
 
@@ -99,7 +96,7 @@ Además, está diseñada para ser escalable y fácilmente adaptable a futuras me
 
 ## 📌 **Cómo Instalar y Ejecutar**
 1️⃣ **Clonar el repositorio**  
-git clone https://github.com/tuusuario/nextjs-gpt-course.git
+git clone https://github.com/DominHector/nextjs-gpt-course?tab=readme-ov-file
 cd nextjs-gpt-course
 
 2️⃣ Instalar dependencias

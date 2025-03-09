@@ -96,18 +96,26 @@ Además, está diseñada para ser escalable y fácilmente adaptable a futuras me
 
 ## 📌 **Cómo Instalar y Ejecutar**
 1️⃣ **Clonar el repositorio**  
+```
 git clone git clone https://github.com/DominHector/nextjs-gpt-course.git
 cd nextjs-gpt-course
+```
 
 2️⃣ Instalar dependencias
+```
 npm install
+```
 
 3️⃣ Configurar variables de entorno (.env.local)
+```
 OPENAI_API_KEY=tu_api_key_aqui
 SYSTEM_ROLE="Eres xxx, un asistente..."
+```
 
 4️⃣ Ejecutar el proyecto en desarrollo
+```
 npm run dev
+```
 
 🛠️ Futuras Mejoras
 ✅ Integrar soporte de voz en el asistente (Web Speech API + ElevenLabs).

@@ -43,7 +43,7 @@ export default function RootLayout({
           },
         ]}
         />
-        <main className="max-w-4xl mx-auto py-8 px-6">{children}</main>
+        <main className="max-w-5xl mx-auto py-8 px-6 mb-8">{children}</main>
         <Footer/>
       </body>
     </html>

@@ -1,11 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function LLMChat() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [typingText, setTypingText] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const [fullResponse, setFullResponse] = useState("");
+
+  useEffect(() => {
+    if (isTyping && fullResponse) {
+      const timeout = setTimeout(() => {
+        setTypingText(fullResponse.substring(0, typingText.length + 1));
+        
+        if (typingText.length >= fullResponse.length) {
+          setIsTyping(false);
+
+          setMessages(prev => {
+            const filteredMessages = prev.filter(msg => msg.role !== "typing");
+            return [...filteredMessages, { role: "assistant", content: fullResponse }];
+          });
+          setFullResponse("");
+        }
+      }, 5);
+      
+      return () => clearTimeout(timeout);
+    }
+  }, [isTyping, typingText, fullResponse]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -24,7 +47,11 @@ export default function LLMChat() {
 
       const data = await res.json();
       if (data.message) {
-        setMessages((prev) => [...prev, { role: "assistant", content: data.message }]);
+        setFullResponse(data.message);
+        setTypingText("");
+        setIsTyping(true);
+        
+        setMessages(prev => [...prev, { role: "typing", content: "" }]);
       }
     } catch (error) {
       console.error("Error enviando mensaje:", error);
@@ -34,13 +61,13 @@ export default function LLMChat() {
   };
 
   return (
-    <div className="min-h-screen bg-background-dark p-8">
+    <div className="min-h-screen ">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-text-primary mb-6 text-center">
-          💬 Chatea conmigo
+          💬 Chatea con Héctor
         </h2>
 
-        <div className="card-base overflow-hidden">
+        <div className="bg-white overflow-hidden">
           <div className="h-[500px] overflow-y-auto p-6 space-y-4">
             {messages.map((msg, index) => (
               <div
@@ -48,9 +75,18 @@ export default function LLMChat() {
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`p-4 rounded-2xl shadow-md max-w-[70%] ${msg.role === "user" ? "bg-gray-500 text-white" : "bg-gray-300 text-gray-800"}`}
+                  className={`p-4 rounded-2xl shadow-md max-w-[70%] ${
+                    msg.role === "user" 
+                      ? "bg-green-100 text-gray-600 font-semibold"
+                      : msg.role === "typing" 
+                        ? "bg-blue-100 text-gray-600 font-semibold" 
+                        : "bg-blue-100 text-gray-600 font-semibold"
+                  }`}
                 >
-                  {msg.content}
+                  {msg.role === "typing" ? typingText : msg.content}
+                  {msg.role === "typing" && (
+                    <span className="inline-block ml-1 animate-pulse">▌</span>
+                  )}
                 </div>
               </div>
             ))}
@@ -61,7 +97,7 @@ export default function LLMChat() {
             )}
           </div>
 
-          <div className="p-4 border-t border-border-color bg-background-card">
+          <div className="p-4 border-t border-gray-200 bg-background-card">
             <div className="flex items-center gap-3">
               <input
                 type="text"

@@ -5,8 +5,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, //.env.local 
 });
 
-const LLMModel = process.env.MODEL || "gpt-4o-mini";
-const systemPrompt = process.env.SYSTEM_ROLE || "You are a helpful assistant.";
+const LLMModel = process.env.MODEL || "gpt-4o-mini"; //.env.local 
+const systemPrompt = process.env.SYSTEM_ROLE || "You are a helpful assistant."; //.env.local 
 
 export async function POST(request: Request) {
   try {

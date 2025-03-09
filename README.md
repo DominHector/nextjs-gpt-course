@@ -117,12 +117,14 @@ SYSTEM_ROLE="Eres xxx, un asistente..."
 npm run dev
 ```
 
-🛠️ Futuras Mejoras
-✅ Integrar soporte de voz en el asistente (Web Speech API + ElevenLabs).
-✅ Persistencia del chat en LocalStorage para recordar conversaciones.
-✅ Agregar notificaciones push en Android/iOS con Firebase.
-✅ Modo multiusuario con perfiles personalizados.
+## 🛠️ Futuras Mejoras  
+✅ Integrar soporte de voz en el asistente (Web Speech API + ElevenLabs).  
+✅ Persistencia del chat en LocalStorage para recordar conversaciones.  
+✅ Agregar notificaciones push en Android/iOS con Firebase.  
+✅ Modo multiusuario con perfiles personalizados.  
 
-📩 Contacto y Colaboración
-¿Tienes ideas o sugerencias? 🤝
-📌 LinkedIn: https://www.linkedin.com/in/h%C3%A9ctor-dom%C3%ADnguez-b594a730/
+---
+
+## 📩 Contacto y Colaboración  
+¿Tienes ideas o sugerencias? 🤝  
+📌 LinkedIn: [HDominguez](https://www.linkedin.com/in/h%C3%A9ctor-dom%C3%ADnguez-b594a730/)  

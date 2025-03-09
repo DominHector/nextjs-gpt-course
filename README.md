@@ -96,7 +96,7 @@ Además, está diseñada para ser escalable y fácilmente adaptable a futuras me
 
 ## 📌 **Cómo Instalar y Ejecutar**
 1️⃣ **Clonar el repositorio**  
-git clone https://github.com/DominHector/nextjs-gpt-course?tab=readme-ov-file
+git clone git clone https://github.com/DominHector/nextjs-gpt-course.git
 cd nextjs-gpt-course
 
 2️⃣ Instalar dependencias

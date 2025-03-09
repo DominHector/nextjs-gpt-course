@@ -27,8 +27,23 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header/>
-          <main className="max-w-4xl mx-auto py-8 px-6">{children}</main>
+        <Header
+        links={[
+          {
+            label: "Chatea conmigo",
+            href: "/chatme",
+          },
+          {
+            label: "Proyectos",
+            href: "/projects",
+          },
+          {
+            label: "Sobre Mí",
+            href: "/about",
+          },
+        ]}
+        />
+        <main className="max-w-4xl mx-auto py-8 px-6">{children}</main>
         <Footer/>
       </body>
     </html>
